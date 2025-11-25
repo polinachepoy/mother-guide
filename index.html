@@ -1,50 +1,54 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Заголовок страницы</title>
-    <link rel="stylesheet" href="./styles/style.css">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Мой личный сайт</title>
+  <link rel="stylesheet" href="./styles/style.css" />
 
-    <meta property="og:title" content="Заголовок страницы в OG">
-    <meta property="og:description" content="Описание страницы в OG">
-    <meta property="og:image" content="https://ru.pinterest.com/pin/563018697524494/">
-    <meta property="og:url" content="https://ru.pinterest.com/">
-  </head>
-  <body>
-    <header>
-  <h1>Личный сайт</h1>
-  <p>Который сделан для экзамена</p>
-  <!-- Кнопка для переключения темы -->
-  <button id="theme-toggle">Переключить тему</button>
-  <nav>
-    <ul>
-      <li><a href="index.html">Эта страница</a></li>
-      <li><a href="catalog.html">Другая страница</a></li>
-    </ul>
-  </nav>
-</header>
-    <main>
-      <article>
-        <section>
-          <h2>Первая глава</h2>
-          <p>Она обо мне</p>
-          <img src="images/image.png" alt="Человек и пароход">
-          <p>О буднях семьи с детьми, о трудностях материнства и об интересных способах решения разных ситуаций.</p>
-        </section>
-        <section>
-          <h2>Вторая глава</h2>
-          <p>Небольшой эксурс в прошлое, где зарождалась наша большая семья</p>
-        </section>
-        <section>
-          <h2>И третья</h2>
-          <p>Хотелось бы, чтоб из этого проекта получилось нечто большее.</p>
-        </section>
-      </article>
-    </main>
-    <footer>
-      <p>Автор- Полина Густова, мама пятерых детей и неутомимый энтузиаст.</p>
-    </footer>
-    <!-- сюда можно подключить jquery <script src="scripts/app.js" defer></script> -->
-  </body>
+  <!-- Open Graph мета-теги с рабочим изображением -->
+  <meta property="og:title" content="Мой личный сайт" />
+  <meta property="og:description" content="Портфолио и блог о жизни" />
+  <!-- Используем популярное изображение с Unsplash -->
+  <meta property="og:image" content="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" />
+  <meta property="og:url" content="https://ru.pinterest.com/" />
+</head>
+<body>
+  <header>
+    <h1>Личный сайт</h1>
+    <p>Который сделан для экзамена</p>
+    <!-- Кнопка для переключения темы (опционально) -->
+    <!-- <button id="theme-toggle">Переключить тему</button> -->
+    <nav>
+      <ul>
+        <li><a href="index.html">Эта страница</a></li>
+        <li><a href="catalog.html">Другая страница</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+      <section>
+        <h2>Первая глава</h2>
+        <p>Она обо мне</p>
+        <!-- Рабочее изображение -->
+        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Человек на море" />
+        <p>О буднях семьи с детьми, о трудностях материнства и об интересных способах решения разных ситуаций.</p>
+      </section>
+      <section>
+        <h2>Вторая глава</h2>
+        <p>Небольшой эксурс в прошлое, где зарождалась наша большая семья</p>
+      </section>
+      <section>
+        <h2>И третья</h2>
+        <p>Хотелось бы, чтоб из этого проекта получилось нечто большее.</p>
+      </section>
+    </article>
+  </main>
+  <footer>
+    <p>Автор - Полина Густова, мама пятерых детей и неутомимый энтузиаст.</p>
+  </footer>
+  <!-- подключение JavaScript -->
+  <script src="scripts/app.js" defer></script>
+</body>
 </html>
