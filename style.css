@@ -1,0 +1,99 @@
+/* Общие стили для тела страницы */
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  background-color: #f4f4f4;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+/* Заголовки */
+h1, h2 {
+  color: #2c3e50;
+}
+
+h1 {
+  font-size: 2.5em;
+  margin-bottom: 0.2em;
+}
+
+h2 {
+  font-size: 1.8em;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+}
+
+/* Оформление шрифта и отступов для параграфов */
+p {
+  margin-bottom: 1em;
+  font-size: 1.1em;
+}
+
+/* Стиль для навигации */
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 15px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #2980b9;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+nav a:hover {
+  background-color: #2980b9;
+  color: #fff;
+}
+
+/* Стили для заголовка сайта в шапке */
+header {
+  background-color: #ecf0f1;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Основной контент */
+main {
+  padding: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Стиль для статьи */
+article {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Разделы внутри статьи */
+section {
+  margin-bottom: 20px;
+}
+
+/* Фото */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-top: 10px;
+  border-radius: 8px;
+}
+
+/* Подвал */
+footer {
+  background-color: #bdc3c7;
+  text-align: center;
+  padding: 15px 20px;
+  margin-top: 30px;
+  font-size: 0.9em;
+  color: #2c3e50;
+}
