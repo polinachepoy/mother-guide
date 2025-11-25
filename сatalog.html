@@ -1,1 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Каталог и Советы</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f8ff;
+      color: #333;
+    }
 
+    /* Заголовки */
+    h2 {
+      color: #006699;
+    }
+
+    /* Раздел каталога */
+    #catalog {
+      padding: 40px 20px;
+      background-color: #ffffff;
+      text-align: center;
+    }
+
+    /* Кнопка */
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      margin-top: 20px;
+      background-color: #4CAF50;
+      color: #fff;
+      text-decoration: none;
+      font-size: 1em;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #45a049;
+    }
+
+    /* Раздел советов */
+    #daily-tips {
+      margin-top: 60px;
+      padding: 30px 20px;
+      background-color: #e0f7fa;
+      border-radius: 15px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Стили для списка советов */
+    #daily-tips ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    #daily-tips li {
+      margin-bottom: 15px;
+      line-height: 1.5;
+    }
+
+    /* Изображения с детьми */
+    .kids-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .kids-gallery img {
+      width: 150px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: transform 0.3s;
+    }
+
+    .kids-gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Адаптивность */
+    @media(max-width: 600px) {
+      .kids-gallery {
+        flex-direction: column;
+        align-items: center;
+      }
+      .kids-gallery img {
+        width: 80%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Раздел каталога -->
+<section id="catalog">
+  <h2>Каталог</h2>
+  <p>Добро пожаловать! Здесь вы найдете наши товары и услуги для детей и родителей.</p>
+
+  <!-- Графика/и картинки с детьми для украшения -->
+  <div class="kids-gallery">
+    <img src="https://images.unsplash.com/photo-1599580102034-cd4ed72e8ab4?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Дети играют" title="Детки играют">
+    <img src="https://images.unsplash.com/photo-1604462137760-1f3098878b4f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Дети с родителями" title="Дети с родителями">
+    <img src="https://images.unsplash.com/photo-1628417882285-cfde6288ba37?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Дети на прогулке" title="Дети на прогулке">
+  </div>
+
+  <!-- Кнопка для перехода к советам -->
+  <a href="#daily-tips" class="btn">Посмотреть советы</a>
+</section>
+
+<!-- Раздел "Советы на каждый день" -->
+<section id="daily-tips">
+  <h2>Советы на каждый день</h2>
+  <ul>
+    <li><strong>Что делать, если у ребенка режутся зубки:</strong> Обеспечьте мягкую пищу, используйте охлаждающие прорезыватели и следите за гигиеной полости рта.</li>
+    <li><strong>Как интересно провести выходные с детьми:</strong> Посетите парк, организуйте семейный пикник, займитесь рукоделием или просмотром мультфильмов и играми дома.</li>
+    <li><strong>Дополнительный совет:</strong> Создавайте совместные занятия, чтобы укреплять связь и развивать ребенка.</li>
+  </ul>
+
+  <!-- Графика или картинки с детьми (можно их добавить к советам) -->
+  <div class="kids-gallery">
+    <img src="https://images.unsplash.com/photo-1626086770301-c8f4f271a62d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Дети играют на улице" title="Дети на прогулке">
+    <img src="https://images.unsplash.com/photo-1636005831986-825bc14d4e61?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Дети и родители" title="Дети и родители">
+  </div>
+</section>
+
+</body>
+</html>
