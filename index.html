@@ -1,57 +1,49 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Мой личный сайт</title>
-  <link rel="stylesheet" href="./styles/style.css" />
-
-  <!-- Open Graph мета-теги с рабочим изображением -->
-  <meta property="og:title" content="Мой личный сайт" />
-  <meta property="og:description" content="Портфолио и блог о жизни" />
-  <!-- Используем популярное изображение с Unsplash -->
-  <meta property="og:image" content="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" />
-  <meta property="og:url" content="https://ru.pinterest.com/" />
-</head>
-<body>
-  <header>
-    <h1>Личный сайт</h1>
-    <p>Который сделан для экзамена</p>
-    <!-- Кнопка для переключения темы (опционально) -->
-    <!-- <button id="theme-toggle">Переключить тему</button> -->
-    <nav>
-      <ul>
-        <li><a href="index.html">Эта страница</a></li>
-        <li><a href="catalog.html">Другая страница</a></li>
-      </ul>
-    </nav>
-  </header>
-  <main>
-    <div class="kids-container">
-  <img src="https://images.unsplash.com/photo-1604537528528-467581671b10?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Малыши играют" class="kids-image" />
+<!-- Блок часов -->
+<div class="info-box">
+  <div class="clock">
+    <h3>Текущие часы</h3>
+    <div id="clock"></div>
+  </div>
+  <!-- Вставка виджета погоды -->
+  <div class="weather">
+    <h3>Погода</h3>
+    <!-- Вставьте сюда ваш код виджета -->
+    <a class="weatherwidget-io" href="https://forecast7.com/ru/55d75g40/moscow/" data-label_1="МОСКВА" data-theme="original" data-basecolor="#00aaff" data-triangle="false" >МОСКВА погода</a>
+    <script>
+    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];
+    if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+    </script>
+  </div>
 </div>
-    <article>
-      <section>
-        <h2>Первая глава</h2>
-        <p>Она обо мне</p>
-        <!-- Рабочее изображение -->
-        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Человек на море" />
-        <p>О буднях семьи с детьми, о трудностях материнства и об интересных способах решения разных ситуаций.</p>
-      </section>
-      <section>
-        <h2>Вторая глава</h2>
-        <p>Небольшой эксурс в прошлое, где зарождалась наша большая семья</p>
-      </section>
-      <section>
-        <h2>И третья</h2>
-        <p>Хотелось бы, чтоб из этого проекта получилось нечто большее.</p>
-      </section>
-    </article>
-  </main>
-  <footer>
-    <p>Автор - Полина Густова, мама пятерых детей и неутомимый энтузиаст.</p>
-  </footer>
-  <!-- подключение JavaScript -->
-  <script src="scripts/app.js" defer></script>
-</body>
-</html>
+
+<!-- Стиль для общего блока -->
+<style>
+  .info-box {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px 0;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+  }
+  .clock, .weather {
+    font-family: 'Arial', sans-serif;
+    font-size: 1.2em;
+    padding: 10px;
+  }
+</style>
+
+<!-- Скрипт для часов -->
+<script>
+  function updateClock() {
+    const clockElement = document.getElementById('clock');
+    const now = new Date();
+    const hours = now.getHours().toString().padStart(2, '0');
+    const minutes = now.getMinutes().toString().padStart(2, '0');
+    const seconds = now.getSeconds().toString().padStart(2, '0');
+    clockElement.textContent = `${hours}:${minutes}:${seconds}`;
+  }
+  setInterval(updateClock, 1000);
+  updateClock();
+</script>
