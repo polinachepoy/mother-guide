@@ -9,11 +9,28 @@
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f0f8ff;
-      color: #333;
+      
+      /* Фоновое изображение с цветами и бабочками */
+      background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+      background-size: cover; /* растянуть изображение на весь экран */
+      background-position: center; /* центрировать изображение */
+      background-repeat: no-repeat; /* не повторять изображение */
+      
+      /* Добавить полупрозрачный слой для читаемости текста */
+      position: relative;
+      min-height: 100vh;
     }
 
-    /* Заголовок страницы "Mother Guide" */
+    /* Когда нужно затемнить фон для читаемости текста, используем псевдоэлемент */
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(255, 255, 255, 0.2); /* прозрачный белый слой для смягчения фона */
+      z-index: -1; /* поместить позади содержимого */
+    }
+
+    /* Остальные стили остаются без изменений */
     header {
       background: linear-gradient(45deg, #FF6B6B, #FFD93D, #6BCB77);
       background-size: 600% 600%;
@@ -35,26 +52,25 @@
       text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
     }
 
-    /* Раздел с заголовками */
     h2 {
       color: #006699;
       margin-top: 40px;
     }
 
-    /* Раздел каталога */
     #catalog {
       padding: 40px 20px;
-      background-color: #ffffff;
-      text-align: center;
+      background-color: rgba(255, 255, 255, 0.8); /* полупрозрачный фон блока */
+      border-radius: 15px;
+      max-width: 900px;
+      margin: 30px auto;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
 
-    /* Стили для ссылки "Каталог" */
     #catalog h2 a {
       text-decoration: none;
       color: #006699;
     }
 
-    /* Кнопка */
     .btn {
       display: inline-block;
       padding: 12px 24px;
@@ -71,18 +87,16 @@
       background-color: #45a049;
     }
 
-    /* Раздел советов */
     #daily-tips {
       margin-top: 60px;
       padding: 30px 20px;
-      background-color: #e0f7fa;
+      background-color: rgba(224, 247, 250, 0.9);
       border-radius: 15px;
       max-width: 900px;
-      margin-left: auto;
-      margin-right: auto;
+      margin: 60px auto;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
 
-    /* Стили для списка советов */
     #daily-tips ul {
       list-style: none;
       padding: 0;
@@ -93,7 +107,6 @@
       line-height: 1.5;
     }
 
-    /* Графика/картинки с детьми */
     .kids-gallery {
       display: flex;
       flex-wrap: wrap;
@@ -103,7 +116,7 @@
     }
 
     .kids-gallery img {
-      width: 100px; /* уменьшенный размер */
+      width: 100px;
       height: auto;
       border-radius: 8px;
       box-shadow: 0 2px 4px rgba(0,0,0,0.2);
@@ -114,7 +127,6 @@
       transform: scale(1.05);
     }
 
-    /* Адаптивность */
     @media(max-width: 600px) {
       .kids-gallery {
         flex-direction: column;
@@ -128,29 +140,21 @@
 </head>
 <body>
 
-<!-- Заголовок сайта -->
 <header>
   <h1>Mother Guide</h1>
 </header>
 
-<!-- Раздел каталога с ссылкой на "catalog.html" -->
 <section id="catalog">
-  <!-- Заголовок "Каталог" с ссылкой -->
   <h2><a href="catalog.html">Каталог</a></h2>
   <p>Добро пожаловать! Здесь вы найдете наши товары и услуги для детей и родителей.</p>
-
-  <!-- Графика/картинки с детьми для украшения -->
   <div class="kids-gallery">
     <img src="https://images.unsplash.com/photo-1599580102034-cd4ed72e8ab4?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Дети играют" title="Детки играют" />
     <img src="https://images.unsplash.com/photo-1604462137760-1f3098878b4f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Дети с родителями" title="Дети с родителями" />
     <img src="https://images.unsplash.com/photo-1628417882285-cfde6288ba37?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Дети на прогулке" title="Дети на прогулке" />
   </div>
-
-  <!-- Кнопка для перехода к советам -->
   <a href="#daily-tips" class="btn">Посмотреть советы</a>
 </section>
 
-<!-- Раздел "Советы на каждый день" -->
 <section id="daily-tips">
   <h2>Советы на каждый день</h2>
   <ul>
@@ -158,8 +162,6 @@
     <li><strong>Как интересно провести выходные с детьми:</strong> Посетите парк, организуйте семейный пикник, займитесь рукоделием или просмотром мультфильмов и играми дома.</li>
     <li><strong>Дополнительный совет:</strong> Создавайте совместные занятия, чтобы укреплять связь и развивать ребенка.</li>
   </ul>
-
-  <!-- Графика или картинки с детьми -->
   <div class="kids-gallery">
     <img src="https://images.unsplash.com/photo-1626086770301-c8f4f271a62d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Дети играют на улице" title="Дети на прогулке" />
     <img src="https://images.unsplash.com/photo-1636005831986-825bc14d4e61?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Дети и родители" title="Дети и родители" />
