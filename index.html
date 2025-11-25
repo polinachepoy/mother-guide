@@ -12,7 +12,7 @@
   <meta property="og:image" content="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" />
   <meta property="og:url" content="https://ru.pinterest.com/" />
 
-  <!-- Стиль для блока с часами и погодой -->
+  <!-- Стиль для блока с часами и погодой (уменьшен в два раза) -->
   <style>
     .info-box {
       display: flex;
@@ -25,8 +25,8 @@
     }
     .clock, .weather {
       font-family: 'Arial', sans-serif;
-      font-size: 1.2em;
-      padding: 10px;
+      font-size: 0.6em; /* уменьшено в два раза */
+      padding: 5px; /* уменьшено в два раза */
     }
   </style>
 </head>
@@ -42,17 +42,17 @@
     </nav>
   </header>
   <main>
-    <!-- Блок с часами и погодой -->
+    <!-- Блок с часами и погодой (уменьшенный) -->
     <div class="info-box">
       <!-- Часы -->
       <div class="clock">
-        <h3>Текущие часы</h3>
+        <h3>Московское время</h3>
         <div id="clock"></div>
       </div>
       <!-- Вставка виджета погоды -->
       <div class="weather">
         <h3>Погода</h3>
-        <!-- Вставьте сюда ваш код виджета -->
+        <!-- Виджет погоды для Москвы -->
         <a class="weatherwidget-io" href="https://forecast7.com/ru/55d75g40/moscow/" data-label_1="МОСКВА" data-theme="original" data-basecolor="#00aaff" data-triangle="false" >МОСКВА погода</a>
         <script>
         !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];
@@ -88,15 +88,14 @@
     <p>Автор: Полина Густова. Добро пожаловать!</p>
   </footer>
 
-  <!-- Скрипт для часов -->
+  <!-- Скрипт для московских часов -->
   <script>
     function updateClock() {
       const clockElement = document.getElementById('clock');
       const now = new Date();
-      const hours = now.getHours().toString().padStart(2, '0');
-      const minutes = now.getMinutes().toString().padStart(2, '0');
-      const seconds = now.getSeconds().toString().padStart(2, '0');
-      clockElement.textContent = `${hours}:${minutes}:${seconds}`;
+      const options = { hour: '2-digit', minute: '2-digit', second: '2-digit', timeZone: 'Europe/Moscow' };
+      const formatter = new Intl.DateTimeFormat('ru-RU', options);
+      clockElement.textContent = formatter.format(now);
     }
     setInterval(updateClock, 1000);
     updateClock();
