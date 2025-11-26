@@ -128,7 +128,6 @@
       <p>Мои контакты +7 925 123 45 67,  e-mail polinkasmol@mail.ru </p>
     </section>
   </article>
-  <div id="butterflies"></div>
  <!-- Кнопка для открытия формы -->
 <button id="openFeedbackBtn" style="
   position: fixed;
@@ -299,51 +298,6 @@
   });
 
 </script>
- // Функция для создания бабочки
-function createButterfly() {
-  const butterfly = document.createElement('div');
-  butterfly.className = 'butterfly';
-
-  // Расположение бабочки
-  // Начинаем из центра или случайной точки
-  butterfly.style.top = Math.random() * 80 + 10 + '%'; // от 10% до 90%
-  butterfly.style.left = Math.random() * 80 + 10 + '%';
-
-  // Генерируем случайные конечные координаты в диапазоне экрана
-  const endX = (Math.random() * 2 - 1) * window.innerWidth; // -windowWidth..+windowWidth
-  const endY = (Math.random() * 2 - 1) * window.innerHeight; // -windowHeight..+windowHeight
-
-  // Устанавливаем переменные для анимации
-  butterfly.style.setProperty('--endX', endX + 'px');
-  butterfly.style.setProperty('--endY', endY + 'px');
-
-  // Стартовая прозрачность и трансформация
-  // (можно оставить по умолчанию или задать явно)
-  butterfly.style.opacity = '0.8';
-
-  // Добавляем в контейнер
-  document.getElementById('butterflies').appendChild(butterfly);
-
-  // Запускаем анимацию через небольшую задержку, чтобы браузер применил стили
-  requestAnimationFrame(() => {
-    butterfly.style.animation = 'fly 20s linear forwards';
-  });
-
-  // Удаляем бабочку по окончании анимации, чтобы не засорять DOM
-  butterfly.addEventListener('animationend', () => {
-    butterfly.remove();
-  });
-}
-
-// Запускаем создание бабочек с интервалом
-setInterval(createButterfly, 500); // каждые 0.5 сек создается новая бабочка
-
-// Можно запустить сразу пару бабочек при загрузке
-for (let i = 0; i < 5; i++) {
-  createButterfly();
-}
-</script>
-
 
 </body>
 </html>
