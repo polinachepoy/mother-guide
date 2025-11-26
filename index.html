@@ -1,201 +1,302 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Страница с часами, погодой и обратной связью</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #222;
-    color: #fff;
-    padding: 20px;
-  }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Главная страница любого сайта</title>
+  <link rel="stylesheet" href="./styles/style.css" />
 
-  /* Стили для часов и погоды с уменьшенным размером шрифта */
-  .clock, .weather {
-    font-family: 'Arial', sans-serif;
-    font-size: 0.2em;
-    padding: 2px;
-  }
+  <!-- Импорт шрифта Marck Script для заголовка -->
+  <link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet" />
 
-  /* Стиль для кнопки обратной связи */
-  #callbackButton {
-    background-color: #64d6d6;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-
-  #callbackButton:hover {
-    background-color: #4facac;
-  }
-
-  /* Боковая панель обратной связи */
-  #callbackForm {
-    position: fixed;
-    top: 0;
-    right: -400px;
-    width: 400px;
-    height: 100%;
-    background-color: #fff;
-    padding: 20px;
-    box-shadow: -2px 0 5px rgba(0,0,0,0.5);
-    transition: right 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    z-index: 1000;
-  }
-
-  #callbackForm.open {
-    right: 0;
-  }
-
-  #closeButton {
-    align-self: flex-end;
-    padding: 8px 12px;
-    background-color: #444;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-
-  /* Стили для формы */
-  #callbackForm form {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-top: 20px;
-  }
-
-  #callbackForm input {
-    padding: 8px;
-    font-size: 14px;
-  }
-
-  #callbackForm button[type="submit"] {
-    padding: 10px;
-    background-color: #4caf50;
-    border: none;
-    color: #fff;
-    cursor: pointer;
-    font-size: 16px;
-    border-radius: 4px;
-  }
-
-  #callbackForm button[type="submit"]:hover {
-    background-color: #45a049;
-  }
-</style>
+  <style>
+    body {
+      background-image: url('https://images.unsplash.com/photo-1763763300149-a29492e90835?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDR8Ym84alFLVGFFMFl8fGVufDB8fHx8fA%3D%3D');
+      background-size: cover;
+      background-position: center;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #000; /* Все надписи черного цвета */
+    }
+    h1 {
+      font-family: 'Marck Script', cursive;
+      font-size: 3em;
+      text-align: center;
+      margin-top: 20px;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 0;
+    }
+    nav a {
+      color: #000; /* Ссылки тоже черного цвета */
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .info-box {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin: 20px auto;
+      padding: 10px;
+      background-color: rgba(240, 240, 240, 0.8);
+      border-radius: 8px;
+      max-width: 900px;
+    }
+    /* Уменьшаем размер шрифта для часов и погоды */
+    .clock, .weather {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.2em; /* уменьшено в три раза */
+      padding: 2px;
+    }
+    article {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 10px;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 8px;
+    }
+    section {
+      margin-bottom: 20px;
+    }
+    h2 {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin-top: 10px;
+      border-radius: 8px;
+    }
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+  </style>
 </head>
 <body>
+<header>
+  <h1>Mother Guide</h1>
+  <p style="text-align:center;">Сайт для мам служит для получения информации, поддержки и общения по всем вопросам, связанным с беременностью, родами и воспитанием детей. Здесь будут публиковаться проверенные статьи, ответы экспертов, новости законодательства.</p>
+  <nav>
+    <ul>
+      <li><a href="index.html">Главная</a></li>
+      <!-- Якорная ссылка на страницу catalog.html --> 
+      <li><a href="сatalog.html">Каталог</a></li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <!-- Блок с часами и погодой -->
+  <div class="info-box">
+    <!-- Часы -->
+    <div class="clock">
+      <h3>Московское время</h3>
+      <div id="clock"></div>
+    </div>
+    <!-- Погода, подключенная через API -->
+    <div class="weather">
+      <h3>Погода в Москве</h3>
+      <div id="weather-info">Загружается погода...</div>
+    </div>
+  </div>
 
-<!-- Часы -->
-<div class="clock" id="clock">00:00:00</div>
+  <article>
+    <section>
+      <h2>Знакомство</h2>
+      <p>Это моя личная страница, созданная для презентации и деловых целей. Меня зовут Полина, и я мама 5 детей. Этот сайт я создала для общения и обмена опытом с другими мамами.</p>
+      <img src="https://images.unsplash.com/photo-1762446093300-44cdc84337eb?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDY5fGJvOGpRS1RhRTBZfHxlbnwwfHx8fHw%3D" alt="девушка на фото" />
+    </section>
+    <div class="kids-container">
+      <img src="https://images.unsplash.com/photo-1736789087466-e67dd9d77ec3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDExNnxibzhqUUtUYUUwWXx8ZW58MHx8fHx8" alt="девушка на закате" class="kids-image" />
+    </div>
+    <section>
+      <h2>Мои интересы</h2>
+      <p>Я увлекаюсь трудовым правом. Кроме того, люблю изучать законодательство в отношении мам с детьми. Какие существуют льготы, пособия, куда можно сходить с ребенком и для чего нужна карта Москвенок.</p>
+    </section>
+    <section>
+      <h2>Связаться со мной</h2>
+      <p>Обратная связь и мои контакты доступны по этим ссылкам.</p>
+    </section>
+  </article>
+ <!-- Кнопка для открытия формы -->
+<button id="openFeedbackBtn" style="
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  font-weight: 600;
+  border-radius: 6px;
+  background-color: #0066cc; /* Основной цвет кнопки, можно изменить */
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: background-color 0.3s, box-shadow 0.3s;
+">
+  Написать мне
+</button>
 
-<!-- Погода -->
-<div class="weather" id="weather">Загрузка погоды...</div>
+<!-- Форма обратной связи -->
+<div class="feedback-form" style="
+  display: none;
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  width: 350px;
+  max-width: 90%;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px 0 0 8px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  z-index: 1000;
+  font-family: Arial, sans-serif;
+  transition: opacity 0.3s ease;
+">
+  <h2 style="
+    text-align: center;
+    font-family: 'Marck Script', cursive; /* Можно заменить на более нейтральный, если нужно */
+    font-size: 2em;
+    margin-bottom: 15px;
+    color: #333;
+  ">Обратная связь</h2>
+  <form id="form" action="#" method="post" style="display: flex; flex-direction: column; gap: 12px;">
+    <label for="name" style="font-weight: 600; font-size: 0.95em; color: #555;">Ваше имя:</label>
+    <input type="text" id="name" name="name" required style="
+      padding: 10px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      font-family: Arial, sans-serif;
+      font-size: 1em;
+    ">
 
-<!-- Кнопка вызвать форму обратной связи -->
-<button id="callbackButton">Обратная связь</button>
+    <label for="email" style="font-weight: 600; font-size: 0.95em; color: #555;">Ваш email:</label>
+    <input type="email" id="email" name="email" required style="
+      padding: 10px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      font-family: Arial, sans-serif;
+      font-size: 1em;
+    ">
 
-<!-- Боковая панель формы -->
-<div id="callbackForm">
-  <button id="closeButton">Закрыть</button>
-  <h2>Обратная связь</h2>
-  <form id="form" action="#" method="post">
-    <input type="text" id="name" placeholder="Имя" required>
-    <input type="email" id="email" placeholder="Email" required>
-    <button type="submit">Отправить</button>
+    <label for="message" style="font-weight: 600; font-size: 0.95em; color: #555;">Сообщение:</label>
+    <textarea id="message" name="message" rows="4" required style="
+      padding: 10px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      font-family: Arial, sans-serif;
+      font-size: 1em;
+      resize: vertical;
+    "></textarea>
+
+    <button type="submit" style="
+      padding: 12px;
+      border: none;
+      border-radius: 4px;
+      background-color: #0066cc;
+      color: #fff;
+      font-size: 1em;
+      font-family: Arial, sans-serif;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    ">Отправить</button>
   </form>
 </div>
+</main>
+<footer>
+  <p>Автор: Полина Густова. Добро пожаловать!</p>
+  <p>Мои соцсети: <a href="https://vk.com/polinaaugusta" target="_blank" rel="noopener noreferrer">VK</a></p>
+  <p>Сделано мамой для мам!</p>
+</footer>
 
+<!-- Скрипт для часов -->
 <script>
-  /* Отображение времени */
   function updateClock() {
+    const clockDiv = document.getElementById('clock');
     const now = new Date();
-    let hours = now.getHours().toString().padStart(2, '0');
-    let minutes = now.getMinutes().toString().padStart(2, '0');
-    let seconds = now.getSeconds().toString().padStart(2, '0');
-    document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+    const options = { hour: '2-digit', minute: '2-digit', second: '2-digit', timeZone: 'Europe/Moscow' };
+    const formatter = new Intl.DateTimeFormat('ru-RU', options);
+    clockDiv.textContent = formatter.format(now);
   }
   setInterval(updateClock, 1000);
-  updateClock(); // начальное вызово
-
-  /* Получение и отображение погоды */
-  const weatherDiv = document.getElementById('weather');
-
-  async function getWeather() {
-    const apiKey = 'YOUR_OPENWEATHERMAP_API_KEY'; // вставьте свой API ключ
-    const city = 'Moscow'; // или любой другой город
-    const url = \`https://api.openweathermap.org/data/2.5/weather?q=\${city}&units=metric&lang=ru&appid=\${apiKey}\`;
-
-    try {
-      const response = await fetch(url);
-      if (!response.ok) {
-        throw new Error('Ошибка получения погоды');
-      }
-      const data = await response.json();
-      const temp = Math.round(data.main.temp);
-      const description = data.weather[0].description;
-      weatherDiv.textContent = \`\${temp}°C, \${description}\`;
-    } catch (error) {
-      weatherDiv.textContent = 'Не удалось загрузить погоду';
-      console.error(error);
-    }
-  }
-  getWeather();
-
-  /* Обработка кнопки открытия формы */
-  const callbackButton = document.getElementById('callbackButton');
-  const callbackForm = document.getElementById('callbackForm');
-  const closeButton = document.getElementById('closeButton');
-
-  callbackButton.addEventListener('click', () => {
-    callbackForm.classList.add('open');
-  });
-
-  closeButton.addEventListener('click', () => {
-    callbackForm.classList.remove('open');
-  });
-
-  /* Обработка формы */
-  const form = document.getElementById('form');
-
-  form.addEventListener('submit', function(event) {
-    event.preventDefault(); // Останавливаем стандартное действие
-
-    const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
-
-    // Простая проверка полей
-    if (!name || !email) {
-      alert('Пожалуйста, заполните все поля.');
-      return;
-    }
-
-    // Проверка формата email
-    const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
-    if (!email.match(emailPattern)) {
-      alert('Пожалуйста, введите корректный email.');
-      return;
-    }
-
-    // Успешное сообщение
-    alert(`Спасибо, ${name}! Ваша информация отправлена.`);
-
-    // Очистка формы
-    form.reset();
-
-    // Закрыть форму
-    callbackForm.classList.remove('open');
-
-    // Здесь можно добавить отправку данных на сервер через fetch, if needed
-  });
+  updateClock();
 </script>
 
+<!-- Скрипт для получения погоды -->
+<script>
+  // Используем ваш API-ключ для OpenWeatherMap
+  const apiKey = '716e3be6fbc84d8a8a75eb71865fded8';
+  const cityId = 524901; // ID Москвы
+  const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?id=${cityId}&units=metric&lang=ru&appid=${apiKey}`;
+
+  fetch(weatherUrl)
+    .then(response => response.json())
+    .then(data => {
+      const temp = Math.round(data.main.temp);
+      const description = data.weather[0].description;
+      const weatherDiv = document.getElementById('weather-info');
+      weatherDiv.innerHTML = `Температура: ${temp} &deg;C<br/>${description.charAt(0).toUpperCase() + description.slice(1)}`;
+    })
+    .catch(error => {
+      document.getElementById('weather-info').textContent = 'Не удалось загрузить погоду.';
+      console.error('Ошибка загрузки погоды:', error);
+    });
+</script>
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const btn = document.getElementById('openFeedbackBtn');
+    const formDiv = document.querySelector('.feedback-form');
+
+    if (btn && formDiv) {
+      btn.addEventListener('click', () => {
+        if (formDiv.style.display === 'none' || formDiv.style.display === '') {
+          formDiv.style.display = 'block';
+        } else {
+          formDiv.style.display = 'none';
+        }
+      });
+    }
+  });
+</script>
+  <!-- ваш существующий HTML-код -->
+
+<!-- вставьте этот скрипт перед </body> -->
+<script>
+  // Обработка формы через JavaScript
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('form');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault(); // остановить стандартную отправку
+
+      // получение значений из полей
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+
+      // вывод в консоль
+      console.log('Данные формы:', { name, email, message });
+
+      // вывод сообщения пользователю
+      alert('Форма успешно отправлена!\n' +
+            `Имя: ${name}\n` +
+            `Email: ${email}\n` +
+            `Сообщение: ${message}`);
+
+      // очистить форму после отправки (по желанию)
+      form.reset();
+    });
+  });
+</script>
 </body>
 </html>
