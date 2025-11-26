@@ -9,33 +9,21 @@
   <!-- Импорт шрифта Marck Script для заголовка -->
   <link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet" />
 
-  <!-- Open Graph мета-теги -->
-  <meta property="og:title" content="Главная страница моего сайта" />
-  <meta property="og:description" content="Добро пожаловать на мой личный сайт, где я делюсь своей историей и захватывающими моментами." />
-  <meta property="og:image" content="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" />
-  <meta property="og:url" content="https://ru.pinterest.com/" />
-
-  <!-- Стиль для блока с часами и погодой (уменьшен в три раза) и фон -->
   <style>
     body {
-      /* Замените URL на ваш горный пейзаж или используйте свой собственный */
       background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
       background-size: cover;
       background-position: center;
       margin: 0;
       font-family: Arial, sans-serif;
-      color: #fff;
+      color: #000; /* Все надписи черного цвета */
     }
-
-    /* Заголовок */
     h1 {
       font-family: 'Marck Script', cursive;
       font-size: 3em;
       text-align: center;
       margin-top: 20px;
     }
-
-    /* Навигация */
     nav ul {
       list-style: none;
       display: flex;
@@ -44,12 +32,10 @@
       padding: 0;
     }
     nav a {
-      color: #ffffff;
+      color: #000; /* Ссылки тоже черного цвета */
       text-decoration: none;
       font-weight: bold;
     }
-
-    /* Блок с часами и погодой */
     .info-box {
       display: flex;
       justify-content: space-around;
@@ -60,15 +46,11 @@
       border-radius: 8px;
       max-width: 900px;
     }
-
-    /* Размер шрифта для часов и погоды (уменьшен в 3 раза) */
     .clock, .weather {
       font-family: 'Arial', sans-serif;
-      font-size: 0.2em; /* уменьшено в три раза (изначально 0.6em) */
-      padding: 2px; /* уменьшено в три раза (изначально 5px) */
+      font-size: 0.2em; /* уменьшено в три раза */
+      padding: 2px;
     }
-
-    /* Секции контента */
     article {
       max-width: 800px;
       margin: 20px auto;
@@ -79,14 +61,10 @@
     section {
       margin-bottom: 20px;
     }
-
-    /* Заголовки разделов */
     h2 {
       font-size: 1.5em;
       margin-bottom: 10px;
     }
-
-    /* Изображения */
     img {
       max-width: 100%;
       height: auto;
@@ -94,8 +72,6 @@
       margin-top: 10px;
       border-radius: 8px;
     }
-
-    /* Подвал */
     footer {
       text-align: center;
       padding: 15px;
@@ -104,81 +80,87 @@
   </style>
 </head>
 <body>
-  <header>
-    <h1>Mother Guide</h1>
-    <p style="text-align:center;">Здесь вы найдете мою историю и интересные статьи</p>
-    <nav>
-      <ul>
-        <li><a href="index.html">Главная</a></li>
-        <li><a href="catalog.html">Каталог</a></li>
-      </ul>
-    </nav>
-  </header>
-  <main>
-    <!-- Блок с часами и погодой (уменьшенный и с фоном) -->
-    <div class="info-box">
-      <!-- Часы -->
-      <div class="clock">
-        <h3>Московское время</h3>
-        <div id="clock"></div>
-      </div>
-      <!-- Вставка виджета погоды -->
-      <div class="weather">
-        <h3>Погода</h3>
-        <!-- Виджет погоды для Москвы -->
-        <a class="weatherwidget-io" href="https://forecast7.com/ru/55d75g40/moscow/" data-label_1="МОСКВА" data-theme="original" data-basecolor="#00aaff" data-triangle="false">МОСКВА погода</a>
-        <script>
-          !function(d,s,id){
-            var js,fjs=d.getElementsByTagName(s)[0];
-            if(!d.getElementById(id)){
-              js=d.createElement(s);
-              js.id=id;
-              js.src='https://weatherwidget.io/js/widget.min.js';
-              fjs.parentNode.insertBefore(js,fjs);
-            }
-          }(document,'script','weatherwidget-io-js');
-        </script>
-      </div>
+<header>
+  <h1>Mother Guide</h1>
+  <p style="text-align:center;">Здесь вы найдете мою историю и интересные статьи</p>
+  <nav>
+    <ul>
+      <li><a href="index.html">Главная</a></li>
+      <!-- Якорная ссылка на страницу catalog.html -->
+      <li><a href="catalog.html">Каталог</a></li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <!-- Блок с часами и погодой -->
+  <div class="info-box">
+    <!-- Часы -->
+    <div class="clock">
+      <h3>Московское время</h3>
+      <div id="clock"></div>
     </div>
+    <!-- Погода, подключенная через API -->
+    <div class="weather">
+      <h3>Погода в Москве</h3>
+      <div id="weather-info">Загружается погода...</div>
+    </div>
+  </div>
 
-    <article>
-      <section>
-        <h2>Знакомство</h2>
-        <p>Это моя личная страница, созданная для презентации и деловых целей.</p>
-        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Человек на море" />
-      </section>
-      
-      <!-- Блок с анимацией малышей -->
-      <div class="kids-container">
-        <img src="https://images.unsplash.com/photo-1604537528528-467581671b10?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Малыши играют" class="kids-image" />
-      </div>
-      
-      <section>
-        <h2>Мои интересы</h2>
-        <p>Здесь я делюсь своими увлечениями и проектами.</p>
-      </section>
-      
-      <section>
-        <h2>Связаться со мной</h2>
-        <p>Обратная связь и мои контакты доступны по этим ссылкам.</p>
-      </section>
-    </article>
-  </main>
-  <footer>
-    <p>Автор: Полина Густова. Добро пожаловать!</p>
-  </footer>
+  <article>
+    <section>
+      <h2>Знакомство</h2>
+      <p>Это моя личная страница, созданная для презентации и деловых целей.</p>
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Человек на море" />
+    </section>
+    <div class="kids-container">
+      <img src="https://images.unsplash.com/photo-1604537528528-467581671b10?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Малыши играют" class="kids-image" />
+    </div>
+    <section>
+      <h2>Мои интересы</h2>
+      <p>Здесь я делюсь своими увлечениями и проектами.</p>
+    </section>
+    <section>
+      <h2>Связаться со мной</h2>
+      <p>Обратная связь и мои контакты доступны по этим ссылкам.</p>
+    </section>
+  </article>
+</main>
+<footer>
+  <p>Автор: Полина Густова. Добро пожаловать!</p>
+</footer>
 
-  <!-- Скрипт для московских часов -->
-  <script>
-    function updateClock() {
-      const clockDiv = document.getElementById('clock');
-      const now = new Date();
-      const options = { hour: '2-digit', minute: '2-digit', second: '2-digit', timeZone: 'Europe/Moscow' };
-      const formatter = new Intl.DateTimeFormat('ru-RU', options);
-      clockDiv.textContent = formatter.format(now);
-    }
-    setInterval(updateClock, 1000);
-    updateClock();
-  </script>
+<!-- Скрипт для часов -->
+<script>
+  function updateClock() {
+    const clockDiv = document.getElementById('clock');
+    const now = new Date();
+    const options = { hour: '2-digit', minute: '2-digit', second: '2-digit', timeZone: 'Europe/Moscow' };
+    const formatter = new Intl.DateTimeFormat('ru-RU', options);
+    clockDiv.textContent = formatter.format(now);
+  }
+  setInterval(updateClock, 1000);
+  updateClock();
+</script>
+
+<!-- Скрипт для получения погоды -->
+<script>
+  // Замените 'ВАШ_API_КЛЮЧ' на свой API ключ OpenWeatherMap
+  const apiKey = 'ВАШ_API_КЛЮЧ'; // вставьте свой ключ
+  const cityId = 524901; // ID Москвы в OpenWeatherMap
+  const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?id=${cityId}&units=metric&lang=ru&appid=${apiKey}`;
+
+  fetch(weatherUrl)
+    .then(response => response.json())
+    .then(data => {
+      const temp = Math.round(data.main.temp);
+      const description = data.weather[0].description;
+      const weatherDiv = document.getElementById('weather-info');
+      weatherDiv.innerHTML = `Температура: ${temp} &deg;C<br/>${description.charAt(0).toUpperCase() + description.slice(1)}`;
+    })
+    .catch(error => {
+      document.getElementById('weather-info').textContent = 'Не удалось загрузить погоду.';
+      console.error('Ошибка загрузки погоды:', error);
+    });
+</script>
 </body>
 </html>
