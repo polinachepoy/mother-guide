@@ -3,10 +3,58 @@
 <head>
   <meta charset="UTF-8" />
   <title>Каталог</title>
+  <style>
+    body {
+      background-image: url('https://images.unsplash.com/photo-1504438190342-5951e134ffee?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGNoaWxkcmVufGVufDB8fDB8fHww');
+      background-size: cover;
+      background-position: center;
+      background-color: #f0f0f0;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+      color: #333;
+    }
+    /* Стиль для секций */
+    details {
+      background: rgba(255, 255, 255, 0.8);
+      margin-bottom: 15px;
+      padding: 10px;
+      border-radius: 8px;
+      max-width: 600px;
+    }
+    summary {
+      font-weight: bold;
+      font-size: 1.2em;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
   <h1>Это страница каталога</h1>
   <p>Здесь будет размещена информация о продуктах или разделах.</p>
-  <a href="index.html">Назад на главную</a>
+
+  <!-- Разделы с раскрывающимися содержимым -->
+  <details>
+    <summary>Советы</summary>
+    <p>Вот несколько полезных советов для садоводов и любителей природы...</p>
+  </details>
+
+  <details>
+    <summary>Курьезы</summary>
+    <p>Интересные и забавные истории из жизни садоводов и ученых...</p>
+  </details>
+
+  <details>
+    <summary>Школа</summary>
+    <p>Обучающие материалы и курсы по садоводству, ботанике и экологии...</p>
+  </details>
+
+  <details>
+    <summary>Сад</summary>
+    <p>Советы по уходу за садом, растения, оформление и сезонные работы...</p>
+  </details>
+
+  <a href="index.html" style="display:inline-block; margin-top:20px; background:#fff; padding:10px 20px; border-radius:5px; text-decoration:none;">Назад на главную</a>
 </body>
 </html>
