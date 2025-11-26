@@ -6,34 +6,107 @@
   <title>Главная страница любого сайта</title>
   <link rel="stylesheet" href="./styles/style.css" />
 
+  <!-- Импорт шрифта Marck Script для заголовка -->
+  <link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet" />
+
   <!-- Open Graph мета-теги -->
   <meta property="og:title" content="Главная страница моего сайта" />
   <meta property="og:description" content="Добро пожаловать на мой личный сайт, где я делюсь своей историей и захватывающими моментами." />
   <meta property="og:image" content="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" />
   <meta property="og:url" content="https://ru.pinterest.com/" />
 
-  <!-- Стиль для блока с часами и погодой (уменьшен в два раза) -->
+  <!-- Стиль для блока с часами и погодой (уменьшен в три раза) и фон -->
   <style>
+    body {
+      /* Замените URL на ваш горный пейзаж или используйте свой собственный */
+      background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+      background-size: cover;
+      background-position: center;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #fff;
+    }
+
+    /* Заголовок */
+    h1 {
+      font-family: 'Marck Script', cursive;
+      font-size: 3em;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    /* Навигация */
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 0;
+    }
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* Блок с часами и погодой */
     .info-box {
       display: flex;
       justify-content: space-around;
       align-items: center;
-      margin: 20px 0;
+      margin: 20px auto;
       padding: 10px;
-      background-color: #f0f0f0;
+      background-color: rgba(240, 240, 240, 0.8);
       border-radius: 8px;
+      max-width: 900px;
     }
+
+    /* Размер шрифта для часов и погоды (уменьшен в 3 раза) */
     .clock, .weather {
       font-family: 'Arial', sans-serif;
-      font-size: 0.6em; /* уменьшено в два раза */
-      padding: 5px; /* уменьшено в два раза */
+      font-size: 0.2em; /* уменьшено в три раза (изначально 0.6em) */
+      padding: 2px; /* уменьшено в три раза (изначально 5px) */
+    }
+
+    /* Секции контента */
+    article {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 10px;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 8px;
+    }
+    section {
+      margin-bottom: 20px;
+    }
+
+    /* Заголовки разделов */
+    h2 {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+    }
+
+    /* Изображения */
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin-top: 10px;
+      border-radius: 8px;
+    }
+
+    /* Подвал */
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: rgba(0, 0, 0, 0.5);
     }
   </style>
 </head>
 <body>
   <header>
     <h1>Mother Guide</h1>
-    <p>Здесь вы найдете мою историю и интересные статьи</p>
+    <p style="text-align:center;">Здесь вы найдете мою историю и интересные статьи</p>
     <nav>
       <ul>
         <li><a href="index.html">Главная</a></li>
@@ -42,7 +115,7 @@
     </nav>
   </header>
   <main>
-    <!-- Блок с часами и погодой (уменьшенный) -->
+    <!-- Блок с часами и погодой (уменьшенный и с фоном) -->
     <div class="info-box">
       <!-- Часы -->
       <div class="clock">
@@ -53,10 +126,17 @@
       <div class="weather">
         <h3>Погода</h3>
         <!-- Виджет погоды для Москвы -->
-        <a class="weatherwidget-io" href="https://forecast7.com/ru/55d75g40/moscow/" data-label_1="МОСКВА" data-theme="original" data-basecolor="#00aaff" data-triangle="false" >МОСКВА погода</a>
+        <a class="weatherwidget-io" href="https://forecast7.com/ru/55d75g40/moscow/" data-label_1="МОСКВА" data-theme="original" data-basecolor="#00aaff" data-triangle="false">МОСКВА погода</a>
         <script>
-        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];
-        if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+          !function(d,s,id){
+            var js,fjs=d.getElementsByTagName(s)[0];
+            if(!d.getElementById(id)){
+              js=d.createElement(s);
+              js.id=id;
+              js.src='https://weatherwidget.io/js/widget.min.js';
+              fjs.parentNode.insertBefore(js,fjs);
+            }
+          }(document,'script','weatherwidget-io-js');
         </script>
       </div>
     </div>
@@ -91,11 +171,11 @@
   <!-- Скрипт для московских часов -->
   <script>
     function updateClock() {
-      const clockElement = document.getElementById('clock');
+      const clockDiv = document.getElementById('clock');
       const now = new Date();
       const options = { hour: '2-digit', minute: '2-digit', second: '2-digit', timeZone: 'Europe/Moscow' };
       const formatter = new Intl.DateTimeFormat('ru-RU', options);
-      clockElement.textContent = formatter.format(now);
+      clockDiv.textContent = formatter.format(now);
     }
     setInterval(updateClock, 1000);
     updateClock();
