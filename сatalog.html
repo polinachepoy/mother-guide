@@ -4,37 +4,120 @@
   <meta charset="UTF-8" />
   <title>Каталог</title>
   <style>
+    /* Общие стили для тела страницы */
     body {
       background-image: url('https://images.unsplash.com/photo-1504438190342-5951e134ffee?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGNoaWxkcmVufGVufDB8fDB8fHww');
       background-size: cover;
       background-position: center;
-      background-color: #f0f0f0;
+      background-repeat: no-repeat;
       min-height: 100vh;
       margin: 0;
-      padding: 20px;
-      font-family: Arial, sans-serif;
-      color: #333;
+      padding: 40px 20px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      color: #222;
     }
-    /* Стиль для секций */
+
+    /* Заголовок и основной текст */
+    h1 {
+      text-align: center;
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      color: #fff;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+
+    p {
+      max-width: 800px;
+      margin: 0 auto 30px auto;
+      font-size: 1.2em;
+      line-height: 1.5;
+      text-align: center;
+      color: #fff;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    }
+
+    /* Стиль для интерфейсных элементов с раскрывающимися разделами */
     details {
-      background: rgba(255, 255, 255, 0.8);
-      margin-bottom: 15px;
-      padding: 10px;
-      border-radius: 8px;
-      max-width: 600px;
+      background: rgba(255, 255, 255, 0.85);
+      margin: 10px auto;
+      max-width: 700px;
+      padding: 15px 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
     }
+
+    details:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+
     summary {
       font-weight: bold;
-      font-size: 1.2em;
+      font-size: 1.4em;
       cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* Стиль для стрелки, которая показывает состояние раскрытия */
+    summary::marker {
+      font-size: 1.5em;
+      color: #555;
+    }
+
+    /* Для удобства — активное состояние стрелки */
+    details[open] summary::marker {
+      transform: rotate(90deg);
+    }
+
+    /* Конкретика для текста внутри разделов */
+    details p {
+      margin-top: 10px;
+      font-size: 1.1em;
+      line-height: 1.4;
+      color: #333;
+    }
+
+    /* Кнопка назад внизу */
+    a.back-link {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 25px;
+      background-color: rgba(255,255,255,0.9);
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      color: #222;
+      font-size: 1.2em;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    a.back-link:hover {
+      background-color: #fff;
+      transform: translateY(-2px);
+    }
+
+    /* Адаптация для мобильных устройств */
+    @media(max-width: 768px) {
+      body {
+        padding: 20px;
+      }
+      h1 {
+        font-size: 2em;
+      }
+      p {
+        font-size: 1em;
+      }
     }
   </style>
 </head>
 <body>
   <h1>Это страница каталога</h1>
-  <p>Здесь будет размещена информация о продуктах или разделах.</p>
+  <p>Здесь вы найдете полезные советы, забавные истории и советы для мам и родителей.</p>
 
-  <!-- Разделы с раскрывающимися содержимым -->
   <details>
     <summary>Советы (для мамы)</summary>
     <p>Планируйте день заранее, чтобы избежать стрессов и быть готовой к разным ситуациям. Включайте в распорядок дня короткие перерывы для отдыха для ребенка и себя. Не забывайте уделять время играм и совместному общению, это помогает укрепить связь и развивать инициативу малыша. Постоянство и спокойствие — ключ к успешному воспитанию.</p>
@@ -55,6 +138,6 @@
     <p>Постепенно приучайте ребенка к новому режиму: укладывайте его в сад в одно и то же время, читайте книги о садике и знакомьте с тем, что его там ждет. Не забывайте говорить о безопасности и поддержке. Можно устроить малышу мини-путешествие в садик заранее, чтобы он уже знал его и чувствовал себя спокойнее. Парадоксально, но регулярность и положительный настрой помогают легче адаптироваться.</p>
   </details>
 
-  <a href="index.html" style="display:inline-block; margin-top:20px; background:#fff; padding:10px 20px; border-radius:5px; text-decoration:none;">Назад на главную</a>
+  <a href="index.html" class="back-link">Назад на главную</a>
 </body>
 </html>
