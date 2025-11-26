@@ -1,153 +1,60 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Каталог мам и родителей</title>
-<style>
-body {
-  margin: 0;
-  font-family: 'Arial Rounded MT Bold', cursive, sans-serif;
-  background-image: url('https://images.unsplash.com/photo-1579123874517-0d9a097249a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
-  background-size: cover;
-  background-position: center;
-  padding: 40px;
-  color: #fff;
-  text-align: center;
-}
-h1 {
-  font-size: 3em;
-  margin-bottom: 0.5em;
-}
-p {
-  font-size: 1.2em;
-  margin-bottom: 2em;
-}
-a.button {
-  display: inline-block;
-  padding: 12px 24px;
-  background-color: #ffe4e1;
-  color: #333;
-  border-radius: 12px;
-  font-weight: bold;
-  text-decoration: none;
-  font-family: 'Arial Rounded MT Bold', cursive, sans-serif;
-  transition: background-color 0.3s, color 0.3s;
-}
-a.button:hover {
-  background-color: #fff;
-  color: #555;
-}
-
-section {
-  max-width: 800px;
-  margin: 30px auto;
-  background-color: rgba(255, 255, 255, 0.8);
-  border-radius: 16px;
-  padding: 20px;
-}
-section h2 {
-  font-size: 2.2em;
-  margin-bottom: 15px;
-}
-section p {
-  font-size: 1.1em;
-  line-height: 1.4;
-}
-
-/* Обновленные стили для <details> и <summary> с кастомной стрелкой */
-summary {
-  font-weight: bold;
-  font-size: 1.4em;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  list-style: none; /* отключаем стандартный маркер */
-  position: relative; /* для псевдоэлемента */
-  padding-right: 30px; /* место для стрелки */
-  margin-bottom: 10px;
-}
-
-/* Кастомная стрелка с анимацией */
-summary::after {
-  content: '';
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  border-right: 3px solid #555;
-  border-bottom: 3px solid #555;
-  transform: translateY(-50%) rotate(45deg);
-  transition: transform 0.3s ease;
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform-origin: center;
-}
-
-/* Поворот стрелки при раскрытии details */
-details[open] summary::after {
-  transform: translateY(-50%) rotate(-135deg);
-}
-
-/* Для улучшения читаемости на мобильных */
-@media (max-width: 600px) {
-  body {
-    padding: 20px;
-  }
-  h1 {
-    font-size: 2em;
-  }
-  section {
-    padding: 15px;
-  }
-  a.button {
-    padding: 10px 20px;
-    font-size: 1em;
-  }
-}
-
-</style>
+  <meta charset="UTF-8" />
+  <title>Каталог</title>
+  <style>
+    body {
+      background-image: url('https://images.unsplash.com/photo-1504438190342-5951e134ffee?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGNoaWxkcmVufGVufDB8fDB8fHww');
+      background-size: cover;
+      background-position: center;
+      background-color: #f0f0f0;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+      color: #333;
+    }
+    /* Стиль для секций */
+    details {
+      background: rgba(255, 255, 255, 0.8);
+      margin-bottom: 15px;
+      padding: 10px;
+      border-radius: 8px;
+      max-width: 600px;
+    }
+    summary {
+      font-weight: bold;
+      font-size: 1.2em;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-<h1>Каталог мам и родителей</h1>
-<p>Добро пожаловать! Здесь вы найдете полезные советы, забавные истории и рекомендации для мам и пап.</p>
-<a class="button" href="index.html">Назад на главную</a>
+  <h1>Это страница каталога</h1>
+  <p>Здесь будет размещена информация о продуктах или разделах.</p>
 
-<section>
-<h2>Полезные советы</h2>
-<details>
-<summary>Как правильно ухаживать за новорожденным?</summary>
-<p>Обеспечьте мягкое и безопасное окружение для малыша. Регулярно меняйте подгузники, поддерживайте чистоту и следите за питанием.</p>
-</details>
-<details>
-<summary>Какие игрушки подходят для малышей?</summary>
-<p>Выбирайте игрушки из безопасных материалов, с яркими цветами и разными текстурами для развития senses вашего малыша.</p>
-</details>
-</section>
+  <!-- Разделы с раскрывающимися содержимым -->
+  <details>
+    <summary>Советы (для мамы)</summary>
+    <p>Планируйте день заранее, чтобы избежать стрессов и быть готовой к разным ситуациям. Включайте в распорядок дня короткие перерывы для отдыха для ребенка и себя. Не забывайте уделять время играм и совместному общению, это помогает укрепить связь и развивать инициативу малыша. Постоянство и спокойствие — ключ к успешному воспитанию.</p>
+  </details>
 
-<section>
-<h2>Забавные истории</h2>
-<details>
-<summary>Самая смешная история с ребенком</summary>
-<p>Однажды мой малыш решил "покатать" свою игрушечную машинку по всей мебели — и случайно украшения на полке упали! Всё закончилось хорошо, и мы смеялись целый вечер.</p>
-</details>
-<details>
-<summary>Первые шаги малыша</summary>
-<p>Когда малыш впервые сделал свои первые шаги, это было настоящее чудо! На фото — его радостное лицо, полный энтуазма и честолюбия.</p>
-</details>
-</section>
+  <details>
+    <summary>Курьезы (смешные случаи с детьми)</summary>
+    <p>Однажды малыш на утреннике поет песню, но вместо слов «наша семья», он поет «наша бочка», вызывая уморительный смех окружающих. Или случай, когда ребенок отказался есть суп, потому что подумал, что это каша для мышей — потому что он увидел на упаковке мышку-рисунок. Детские фантазии и неожиданные ситуации часто вызывают улыбку и создают тепло в доме.</p>
+  </details>
 
-<section>
-<h2>Рекомендации и материалы</h2>
-<details>
-<summary>Лучшие книги для мам</summary>
-<p>Вот список популярных книг, которые помогут вам лучше понять и заботиться о своем ребенке.</p>
-</details>
-<details>
-<summary>Обучающие видео</summary>
-<p>Видео уроки и мастер-классы для родителей, чтобы делать свои дни легче и веселее.</p>
-</details>
-</section>
+  <details>
+    <summary>Школа (советы для мамы первоклассника)</summary>
+    <p>Подготовьте ребенка к школе постепенно, привыкая к режиму, учите его самостоятельно собирать портфель и соблюдать гигиену. Объясните важность учебы и поощряйте интерес к новым знаниям. Общайтесь с учителем, чтобы быть в курсе успехов и проблем малыша. Важно создавать дома атмосферу поддержки и уверенности.</p>
+  </details>
+
+  <details>
+    <summary>Сад (советы по адаптации ребенка к детскому саду)</summary>
+    <p>Постепенно приучайте ребенка к новому режиму: укладывайте его в сад в одно и то же время, читайте книги о садике и знакомьте с тем, что его там ждет. Не забывайте говорить о безопасности и поддержке. Можно устроить малышу мини-путешествие в садик заранее, чтобы он уже знал его и чувствовал себя спокойнее. Парадоксально, но регулярность и положительный настрой помогают легче адаптироваться.</p>
+  </details>
+
+  <a href="index.html" style="display:inline-block; margin-top:20px; background:#fff; padding:10px 20px; border-radius:5px; text-decoration:none;">Назад на главную</a>
 </body>
 </html>
