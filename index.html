@@ -268,5 +268,35 @@
     }
   });
 </script>
+  <!-- ваш существующий HTML-код -->
+
+<!-- вставьте этот скрипт перед </body> -->
+<script>
+  // Обработка формы через JavaScript
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('form');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault(); // остановить стандартную отправку
+
+      // получение значений из полей
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+
+      // вывод в консоль
+      console.log('Данные формы:', { name, email, message });
+
+      // вывод сообщения пользователю
+      alert('Форма успешно отправлена!\n' +
+            `Имя: ${name}\n` +
+            `Email: ${email}\n` +
+            `Сообщение: ${message}`);
+
+      // очистить форму после отправки (по желанию)
+      form.reset();
+    });
+  });
+</script>
 </body>
 </html>
