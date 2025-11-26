@@ -9,34 +9,17 @@
       font-family: DXS Roco Pixel, sans-serif;
       margin: 0;
       padding: 0;
-
-      /* Фон с цветочками и бабочками */
-      background-image: url('https://images.unsplash.com/photo-1522661908440-2a4688850fae?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      
-      position: relative;
-      min-height: 100vh;
+      background-color: #f0f8ff;
+      color: #333;
     }
 
-    /* Полупрозрачный слой для улучшения читаемости */
-    body::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(255, 255, 255, 0.2);
-      z-index: -1;
-    }
-
+    /* Заголовок страницы "Mother Guide" */
     header {
       background: linear-gradient(45deg, #FF6B6B, #FFD93D, #6BCB77);
       background-size: 600% 600%;
       animation: gradientBG 15s ease infinite;
       padding: 30px 20px;
       text-align: center;
-      position: relative;
-      z-index: 1;
     }
 
     @keyframes gradientBG {
@@ -52,24 +35,21 @@
       text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
     }
 
+    /* Основной стиль страницы */
+    body {
+      font-family: Marck Script, sans-serif;
+    }
+
+    /* Заголовки разделов */
     h2 {
       color: #006699;
-      margin-top: 40px;
     }
 
-    /* Стиль карточки каталога */
+    /* Раздел каталога */
     #catalog {
       padding: 40px 20px;
-      background-color: rgba(255, 255, 255, 0.8);
-      border-radius: 15px;
-      max-width: 900px;
-      margin: 30px auto;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
-
-    #catalog h2 a {
-      text-decoration: none;
-      color: #006699;
+      background-color: #ffffff;
+      text-align: center;
     }
 
     /* Кнопка */
@@ -82,7 +62,6 @@
       text-decoration: none;
       font-size: 1em;
       border-radius: 5px;
-      cursor: pointer;
       transition: background-color 0.3s;
     }
 
@@ -90,23 +69,18 @@
       background-color: #45a049;
     }
 
-    /* Блок советов */
+    /* Раздел советов */
     #daily-tips {
-      display: none; /* по умолчанию скрыт */
       margin-top: 60px;
       padding: 30px 20px;
-      background-color: rgba(224, 247, 250, 0.9);
+      background-color: #e0f7fa;
       border-radius: 15px;
       max-width: 900px;
-      margin: 60px auto;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      transition: max-height 0.5s ease;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    #daily-tips.visible {
-      display: block;
-    }
-
+    /* Стили для списка советов */
     #daily-tips ul {
       list-style: none;
       padding: 0;
@@ -117,7 +91,7 @@
       line-height: 1.5;
     }
 
-    /* Галерея детей в каталоге */
+    /* Графика/картинки с детьми */
     .kids-gallery {
       display: flex;
       flex-wrap: wrap;
@@ -127,7 +101,7 @@
     }
 
     .kids-gallery img {
-      width: 100px;
+      width: 100px; /* уменьшенный размер */
       height: auto;
       border-radius: 8px;
       box-shadow: 0 2px 4px rgba(0,0,0,0.2);
@@ -138,6 +112,7 @@
       transform: scale(1.05);
     }
 
+    /* Адаптивность */
     @media(max-width: 600px) {
       .kids-gallery {
         flex-direction: column;
@@ -151,23 +126,28 @@
 </head>
 <body>
 
+<!-- Заголовок сайта -->
 <header>
   <h1>Mother Guide</h1>
 </header>
 
+<!-- Раздел каталога -->
 <section id="catalog">
-  <h2><a href="#">Каталог</a></h2>
+  <h2>Каталог</h2>
   <p>Добро пожаловать! Здесь вы найдете наши товары и услуги для детей и родителей.</p>
+
+  <!-- Графика/картинки с детьми для украшения -->
   <div class="kids-gallery">
-    <img src="https://images.unsplash.com/photo-1550212430-424c9de9887a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Дети играют" title="Дети играют" />
-    <img src="https://images.unsplash.com/photo-1599580102034-cd4ed72e8ab4?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Дети с родителями" title="Дети с родителями" />
+    <img src="https://images.unsplash.com/photo-1599580102034-cd4ed72e8ab4?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Дети играют" title="Детки играют" />
+    <img src="https://images.unsplash.com/photo-1604462137760-1f3098878b4f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Дети с родителями" title="Дети с родителями" />
     <img src="https://images.unsplash.com/photo-1628417882285-cfde6288ba37?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Дети на прогулке" title="Дети на прогулке" />
   </div>
-  <!-- Кнопка для показать советы -->
-  <button id="showTipsBtn" class="btn">Посмотреть советы</button>
+
+  <!-- Кнопка для перехода к советам -->
+  <a href="#daily-tips" class="btn">Посмотреть советы</a>
 </section>
 
-<!-- Блок советов, скрыт по умолчанию -->
+<!-- Раздел "Советы на каждый день" -->
 <section id="daily-tips">
   <h2>Советы на каждый день</h2>
   <ul>
@@ -175,19 +155,13 @@
     <li><strong>Как интересно провести выходные с детьми:</strong> Посетите парк, организуйте семейный пикник, займитесь рукоделием или просмотром мультфильмов и играми дома.</li>
     <li><strong>Дополнительный совет:</strong> Создавайте совместные занятия, чтобы укреплять связь и развивать ребенка.</li>
   </ul>
+
+  <!-- Графика или картинки с детьми -->
   <div class="kids-gallery">
-    <img src="https://images.unsplash.com/photo-1549924231-f129b911e442?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Дети играют" title="Дети играют" />
-    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Дети и родители" title="Дети и родители" />
+    <img src="https://images.unsplash.com/photo-1626086770301-c8f4f271a62d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Дети играют на улице" title="Дети на прогулке" />
+    <img src="https://images.unsplash.com/photo-1636005831986-825bc14d4e61?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Дети и родители" title="Дети и родители" />
   </div>
 </section>
-
-<script>
-  // Обработка нажатия кнопки показать советы
-  document.getElementById('showTipsBtn').addEventListener('click', function() {
-    const tipsSection = document.getElementById('daily-tips');
-    tipsSection.classList.toggle('visible');
-  });
-</script>
 
 </body>
 </html>
