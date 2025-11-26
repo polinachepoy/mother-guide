@@ -1,167 +1,104 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mother Guide - Каталог и Советы</title>
+  <title>Главная страница любого сайта</title>
+  <link rel="stylesheet" href="./styles/style.css" />
+
+  <!-- Open Graph мета-теги -->
+  <meta property="og:title" content="Главная страница моего сайта" />
+  <meta property="og:description" content="Добро пожаловать на мой личный сайт, где я делюсь своей историей и захватывающими моментами." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" />
+  <meta property="og:url" content="https://ru.pinterest.com/" />
+
+  <!-- Стиль для блока с часами и погодой (уменьшен в два раза) -->
   <style>
-    body {
-      font-family: DXS Roco Pixel, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f0f8ff;
-      color: #333;
-    }
-
-    /* Заголовок страницы "Mother Guide" */
-    header {
-      background: linear-gradient(45deg, #FF6B6B, #FFD93D, #6BCB77);
-      background-size: 600% 600%;
-      animation: gradientBG 15s ease infinite;
-      padding: 30px 20px;
-      text-align: center;
-    }
-
-    @keyframes gradientBG {
-      0% {background-position: 0% 50%;}
-      50% {background-position: 100% 50%;}
-      100% {background-position: 0% 50%;}
-    }
-
-    header h1 {
-      font-size: 2.8em;
-      margin: 0;
-      color: #fff;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-    }
-
-    /* Основной стиль страницы */
-    body {
-      font-family: Marck Script, sans-serif;
-    }
-
-    /* Заголовки разделов */
-    h2 {
-      color: #006699;
-    }
-
-    /* Раздел каталога */
-    #catalog {
-      padding: 40px 20px;
-      background-color: #ffffff;
-      text-align: center;
-    }
-
-    /* Кнопка */
-    .btn {
-      display: inline-block;
-      padding: 12px 24px;
-      margin-top: 20px;
-      background-color: #4CAF50;
-      color: #fff;
-      text-decoration: none;
-      font-size: 1em;
-      border-radius: 5px;
-      transition: background-color 0.3s;
-    }
-
-    .btn:hover {
-      background-color: #45a049;
-    }
-
-    /* Раздел советов */
-    #daily-tips {
-      margin-top: 60px;
-      padding: 30px 20px;
-      background-color: #e0f7fa;
-      border-radius: 15px;
-      max-width: 900px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    /* Стили для списка советов */
-    #daily-tips ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    #daily-tips li {
-      margin-bottom: 15px;
-      line-height: 1.5;
-    }
-
-    /* Графика/картинки с детьми */
-    .kids-gallery {
+    .info-box {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-      margin-top: 30px;
-    }
-
-    .kids-gallery img {
-      width: 100px; /* уменьшенный размер */
-      height: auto;
+      justify-content: space-around;
+      align-items: center;
+      margin: 20px 0;
+      padding: 10px;
+      background-color: #f0f0f0;
       border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-      transition: transform 0.3s;
     }
-
-    .kids-gallery img:hover {
-      transform: scale(1.05);
-    }
-
-    /* Адаптивность */
-    @media(max-width: 600px) {
-      .kids-gallery {
-        flex-direction: column;
-        align-items: center;
-      }
-      .kids-gallery img {
-        width: 80%;
-      }
+    .clock, .weather {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.6em; /* уменьшено в два раза */
+      padding: 5px; /* уменьшено в два раза */
     }
   </style>
 </head>
 <body>
+  <header>
+    <h1>Mother Guide</h1>
+    <p>Здесь вы найдете мою историю и интересные статьи</p>
+    <nav>
+      <ul>
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="catalog.html">Каталог</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <!-- Блок с часами и погодой (уменьшенный) -->
+    <div class="info-box">
+      <!-- Часы -->
+      <div class="clock">
+        <h3>Московское время</h3>
+        <div id="clock"></div>
+      </div>
+      <!-- Вставка виджета погоды -->
+      <div class="weather">
+        <h3>Погода</h3>
+        <!-- Виджет погоды для Москвы -->
+        <a class="weatherwidget-io" href="https://forecast7.com/ru/55d75g40/moscow/" data-label_1="МОСКВА" data-theme="original" data-basecolor="#00aaff" data-triangle="false" >МОСКВА погода</a>
+        <script>
+        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];
+        if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+        </script>
+      </div>
+    </div>
 
-<!-- Заголовок сайта -->
-<header>
-  <h1>Mother Guide</h1>
-</header>
+    <article>
+      <section>
+        <h2>Знакомство</h2>
+        <p>Это моя личная страница, созданная для презентации и деловых целей.</p>
+        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Человек на море" />
+      </section>
+      
+      <!-- Блок с анимацией малышей -->
+      <div class="kids-container">
+        <img src="https://images.unsplash.com/photo-1604537528528-467581671b10?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Малыши играют" class="kids-image" />
+      </div>
+      
+      <section>
+        <h2>Мои интересы</h2>
+        <p>Здесь я делюсь своими увлечениями и проектами.</p>
+      </section>
+      
+      <section>
+        <h2>Связаться со мной</h2>
+        <p>Обратная связь и мои контакты доступны по этим ссылкам.</p>
+      </section>
+    </article>
+  </main>
+  <footer>
+    <p>Автор: Полина Густова. Добро пожаловать!</p>
+  </footer>
 
-<!-- Раздел каталога -->
-<section id="catalog">
-  <h2>Каталог</h2>
-  <p>Добро пожаловать! Здесь вы найдете наши товары и услуги для детей и родителей.</p>
-
-  <!-- Графика/картинки с детьми для украшения -->
-  <div class="kids-gallery">
-    <img src="https://images.unsplash.com/photo-1599580102034-cd4ed72e8ab4?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Дети играют" title="Детки играют" />
-    <img src="https://images.unsplash.com/photo-1604462137760-1f3098878b4f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Дети с родителями" title="Дети с родителями" />
-    <img src="https://images.unsplash.com/photo-1628417882285-cfde6288ba37?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Дети на прогулке" title="Дети на прогулке" />
-  </div>
-
-  <!-- Кнопка для перехода к советам -->
-  <a href="#daily-tips" class="btn">Посмотреть советы</a>
-</section>
-
-<!-- Раздел "Советы на каждый день" -->
-<section id="daily-tips">
-  <h2>Советы на каждый день</h2>
-  <ul>
-    <li><strong>Что делать, если у ребенка режутся зубки:</strong> Обеспечьте мягкую пищу, используйте охлаждающие прорезыватели и следите за гигиеной полости рта.</li>
-    <li><strong>Как интересно провести выходные с детьми:</strong> Посетите парк, организуйте семейный пикник, займитесь рукоделием или просмотром мультфильмов и играми дома.</li>
-    <li><strong>Дополнительный совет:</strong> Создавайте совместные занятия, чтобы укреплять связь и развивать ребенка.</li>
-  </ul>
-
-  <!-- Графика или картинки с детьми -->
-  <div class="kids-gallery">
-    <img src="https://images.unsplash.com/photo-1626086770301-c8f4f271a62d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Дети играют на улице" title="Дети на прогулке" />
-    <img src="https://images.unsplash.com/photo-1636005831986-825bc14d4e61?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Дети и родители" title="Дети и родители" />
-  </div>
-</section>
-
+  <!-- Скрипт для московских часов -->
+  <script>
+    function updateClock() {
+      const clockElement = document.getElementById('clock');
+      const now = new Date();
+      const options = { hour: '2-digit', minute: '2-digit', second: '2-digit', timeZone: 'Europe/Moscow' };
+      const formatter = new Intl.DateTimeFormat('ru-RU', options);
+      clockElement.textContent = formatter.format(now);
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
 </body>
 </html>
