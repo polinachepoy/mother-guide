@@ -116,6 +116,17 @@
     <div class="kids-container">
       <img src="https://images.unsplash.com/photo-1736789087466-e67dd9d77ec3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDExNnxibzhqUUtUYUUwWXx8ZW58MHx8fHx8" alt="девушка на закате" class="kids-image" />
     </div>
+    <div id="pollContainer">
+  <h2>Сколько у вас детей?</h2>
+  <form id="childrenPoll">
+    <label><input type="radio" name="children" value="Нет детей" required> Нет детей</label><br>
+    <label><input type="radio" name="children" value="1-2"> 1-2</label><br>
+    <label><input type="radio" name="children" value="3-4"> 3-4</label><br>
+    <label><input type="radio" name="children" value="5 и более"> 5 и более</label><br>
+    <button type="submit">Голосовать</button>
+  </form>
+  <div class="result" id="results"></div>
+</div>
     <section>
       <h2>Мои интересы</h2>
       <p>Я увлекаюсь трудовым правом. Кроме того, люблю изучать законодательство в отношении мам с детьми. Какие существуют льготы, пособия, куда можно сходить с ребенком и для чего нужна карта Москвенок.</p>
@@ -297,6 +308,42 @@
       form.reset();
     });
   });
+</script>
+  <script>
+  const form = document.getElementById('childrenPoll');
+  const resultsDiv = document.getElementById('results');
+
+  let votes = JSON.parse(localStorage.getItem('childrenVotes')) || {
+    'Нет детей': 0,
+    '1-2': 0,
+    '3-4': 0,
+    '5 и более': 0
+  };
+
+  function displayResults() {
+    let html = '<h3>Результаты голосования:</h3><ul>';
+    for (const [option, count] of Object.entries(votes)) {
+      html += `<li>${option}: ${count}</li>`;
+    }
+    html += '</ul>';
+    resultsDiv.innerHTML = html;
+  }
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const formData = new FormData(form);
+    const answer = formData.get('children');
+
+    if (votes.hasOwnProperty(answer)) {
+      votes[answer]++;
+    }
+    localStorage.setItem('childrenVotes', JSON.stringify(votes));
+    displayResults();
+    form.reset();
+  });
+
+  // показывать результаты при загрузке страницы
+  displayResults();
 </script>
 </body>
 </html>
