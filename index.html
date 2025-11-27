@@ -304,96 +304,67 @@
       form.reset();
     });
   });
-<!-- Вставьте это в BODY вашего сайта -->
+</script>
+  <!-- Удалите старый блок бабочек и вставьте этот код ПЕРЕД </body> -->
 
-<!-- Создаем несколько бабочек -->
+<!-- Контейнер для бабочек -->
 <div class="butterflies-container"></div>
 
-<style>
-  /* Контейнер для бабочек */
-  .butterflies-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none; /* чтобы бабочки не мешали кликам */
-    overflow: hidden;
-    z-index: 9999;
-  }
-
-  /* Общий стиль бабочек */
-  .butterfly {
-    position: absolute;
-    width: 20px; /* 1 см примерно 20px на экране */
-    height: 20px;
-    opacity: 0.6; /* полупрозрачность */
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    animation: float 20s linear infinite;
-  }
-
-  /* Анимация плавного колебания вверх и вниз (порхаем) */
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-  }
-</style>
-
 <script>
-  // Массив изображений бабочек разных цветов и стилей
-  const butterflyImages = [
-    'https://i.imgur.com/0oKfKMi.png', // вставьте сюда URL ваших бабочек
-    'https://i.imgur.com/PRpbhpz.png',
-    'https://i.imgur.com/6ADhmFx.png',
-    'https://i.imgur.com/OgJ8oYH.png',
-  ];
+// Скрипт для бабочек
+document.addEventListener('DOMContentLoaded', function() {
+    const butterflyImages = [
+        'https://i.imgur.com/0oKfKMi.png',
+        'https://i.imgur.com/PRpbhpz.png', 
+        'https://i.imgur.com/6ADhmFx.png',
+        'https://i.imgur.com/OgJ8oYH.png',
+    ];
 
-  const container = document.querySelector('.butterflies-container');
+    const container = document.querySelector('.butterflies-container');
+    
+    // Проверяем, существует ли контейнер
+    if (!container) {
+        console.error('Контейнер для бабочек не найден');
+        return;
+    }
 
-  // Создаем определенное число бабочек
-  const totalButterflies = 20;
+    // Создаем бабочек
+    const totalButterflies = 15; // Уменьшил количество для производительности
 
-  for (let i=0; i<totalButterflies; i++) {
-    const butterfly = document.createElement('div');
-    butterfly.className = 'butterfly';
+    for (let i = 0; i < totalButterflies; i++) {
+        const butterfly = document.createElement('div');
+        butterfly.className = 'butterfly';
 
-    // Выбираем случайное изображение
-    const imgIndex = Math.floor(Math.random() * butterflyImages.length);
-    butterfly.style.backgroundImage = `url('${butterflyImages[imgIndex]}')`;
+        // Случайное изображение
+        const imgIndex = Math.floor(Math.random() * butterflyImages.length);
+        butterfly.style.backgroundImage = `url('${butterflyImages[imgIndex]}')`;
 
-    // Случайное начальное положение
-    const startX = Math.random() * window.innerWidth;
-    const startY = Math.random() * window.innerHeight;
+        // Случайная начальная позиция
+        const startX = Math.random() * window.innerWidth;
+        const startY = Math.random() * window.innerHeight;
 
-    butterfly.style.left = `${startX}px`;
-    butterfly.style.top = `${startY}px`;
+        butterfly.style.left = `${startX}px`;
+        butterfly.style.top = `${startY}px`;
 
-    // Скорость и направление
-    const duration = 30 + Math.random() * 30; // 30-60 секунд
-    const directionX = Math.random() < 0.5 ? 1 : -1;
+        // Анимация
+        const duration = 20 + Math.random() * 20;
+        const directionX = Math.random() < 0.5 ? 1 : -1;
 
-    // Анимация перемещения по экрану
-    butterfly.animate([
-      { transform: `translateX(0)` },
-      { transform: `translateX(${directionX * (window.innerWidth - startX)}px)` }
-    ], {
-      duration: duration * 1000,
-      iterations: Infinity,
-      easing: 'linear',
-      direction: directionX === 1 ? 'alternate' : 'alternate-reverse'
-    });
+        butterfly.animate([
+            { transform: `translateX(0) rotate(0deg)` },
+            { transform: `translateX(${directionX * 200}px) rotate(360deg)` }
+        ], {
+            duration: duration * 1000,
+            iterations: Infinity,
+            easing: 'ease-in-out',
+            direction: 'alternate'
+        });
 
-    // Добавляем бабочку на страницу
-    container.appendChild(butterfly);
-  }
-
-  // Обновлять позицию при изменении размера окна
-  window.addEventListener('resize', () => {
-    // Можно добавить логику для адаптивных анимаций
-  });
+        container.appendChild(butterfly);
+    }
+});
 </script>
-</script>
+</body>
+</html>
 </body>
 </html>
