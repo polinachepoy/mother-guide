@@ -305,31 +305,28 @@
     });
   });
 </script>
-  <!-- Удалите старый блок бабочек и вставьте этот код ПЕРЕД </body> -->
-
-<!-- Контейнер для бабочек -->
+  <!-- Контейнер для бабочек -->
 <div class="butterflies-container"></div>
 
 <script>
 // Скрипт для бабочек
 document.addEventListener('DOMContentLoaded', function() {
     const butterflyImages = [
-        'https://i.imgur.com/0oKfKMi.png',
-        'https://i.imgur.com/PRpbhpz.png', 
-        'https://i.imgur.com/6ADhmFx.png',
-        'https://i.imgur.com/OgJ8oYH.png',
+        'https://cdn-icons-png.flaticon.com/512/109/109612.png',     // бабочка 1
+        'https://cdn-icons-png.flaticon.com/512/3063/3063816.png',   // бабочка 2  
+        'https://cdn-icons-png.flaticon.com/512/783/783793.png',     // бабочка 3
+        'https://cdn-icons-png.flaticon.com/512/3063/3063817.png',   // бабочка 4
     ];
 
     const container = document.querySelector('.butterflies-container');
     
-    // Проверяем, существует ли контейнер
     if (!container) {
         console.error('Контейнер для бабочек не найден');
         return;
     }
 
     // Создаем бабочек
-    const totalButterflies = 15; // Уменьшил количество для производительности
+    const totalButterflies = 15;
 
     for (let i = 0; i < totalButterflies; i++) {
         const butterfly = document.createElement('div');
