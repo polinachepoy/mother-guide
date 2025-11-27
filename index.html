@@ -299,6 +299,8 @@
             `Имя: ${name}\n` +
             `Email: ${email}\n` +
             `Сообщение: ${message}`);
+      // Закрыть форму
+      document.querySelector('.feedback-form').style.display = 'none';
 
       // очистить форму после отправки (по желанию)
       form.reset();
