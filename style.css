@@ -98,44 +98,28 @@ footer {
   color: #2c3e50;
 }
 
-/* Контейнер для анимации бабочек */
-#butterflies {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none; /* бабочки не мешают кликам */
-  overflow: hidden;
-  z-index: 9999; /* поверх всего */
+/* Контейнер для бабочек */
+.butterflies-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 9999;
 }
 
+/* Стиль бабочек */
 .butterfly {
-  position: absolute;
-  width: 40px; /* примерно 1 см в ширину */
-  height: 40px; /* высота равна ширине */
-  background-image: url('https://i.imgur.com/6oE7iXD.png'); /* иконка бабочки */
-  background-size: contain;
-  background-repeat: no-repeat;
-  opacity: 0.8;
-  /* Начальные позиции можно задать динамически через JS */
-  /* initial top/left */
-  top: 50%;
-  left: 50%;
-  transform: translate(0, 0); /* начальное состояние */
-  /* Анимация — задавать при создании элемента через JS */
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    opacity: 0.7;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
-
-/* Анимация полета бабочек */
-@keyframes fly {
-  from {
-    opacity: 1;
-    transform: translate(0, 0) rotate(0deg);
-  }
-  to {
-    opacity: 0;
-    transform: translate(var(--endX), var(--endY)) rotate(720deg);
-  }
 }
 /* Стили для бегущей строки */
 .marquee {
